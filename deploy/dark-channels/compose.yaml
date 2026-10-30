@@ -1,6 +1,6 @@
 services:
   postiz:
-    image: dark-postiz/app:35a4829-local
+    image: dark-postiz/app:35a4829-authfix
     restart: unless-stopped
     environment:
       MAIN_URL: http://localhost:4007

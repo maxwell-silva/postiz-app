@@ -32,7 +32,11 @@ export function Login() {
     appleClientId,
     billingEnabled,
     genericOauth,
+    googleLoginEnabled,
   } = useVariables();
+  const hasSocialLogin = !isGeneral || genericOauth || googleLoginEnabled ||
+    !!appleClientId || !!neynarClientId || billingEnabled;
+
   const resolver = useMemo(() => {
     return classValidatorResolver(LoginUserDto);
   }, []);
@@ -75,9 +79,11 @@ export function Login() {
               {t('sign_in', 'Sign In')}
             </h1>
           </div>
+          {hasSocialLogin && (
           <div className="text-[14px] mt-[32px] mb-[12px]">
             {t('continue_with', 'Continue With')}
           </div>
+          )}
           <div className="flex flex-col">
             {isGeneral && genericOauth ? (
               <OauthProvider />
@@ -85,12 +91,13 @@ export function Login() {
               <GithubProvider />
             ) : (
               <div className="gap-[8px] flex">
-                <GoogleProvider />
+                {googleLoginEnabled && <GoogleProvider />}
                 {!!appleClientId && <AppleProvider />}
                 {!!neynarClientId && <FarcasterProvider />}
                 {billingEnabled && <WalletProvider />}
               </div>
             )}
+            {hasSocialLogin && (
             <div className="h-[20px] mb-[24px] mt-[24px] relative">
               <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
               <div
@@ -99,6 +106,7 @@ export function Login() {
                 <div className="px-[16px]">{t('or', 'or')}</div>
               </div>
             </div>
+            )}
             <div className="flex flex-col gap-[12px]">
               <div className="text-textColor">
                 <Input

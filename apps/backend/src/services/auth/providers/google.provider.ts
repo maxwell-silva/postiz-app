@@ -8,12 +8,20 @@ import {
 const defaultRedirect = () =>
   `${process.env.FRONTEND_URL}/integrations/social/youtube`;
 
-const makeClient = (redirectUri: string) =>
-  new google.auth.OAuth2({
+const makeClient = (redirectUri: string) => {
+  if (!process.env.YOUTUBE_CLIENT_ID?.trim() ||
+      !process.env.YOUTUBE_CLIENT_SECRET?.trim()) {
+    throw new HttpException(
+      'Google sign-in is not configured. Please use email and password.',
+      503
+    );
+  }
+  return new google.auth.OAuth2({
     clientId: process.env.YOUTUBE_CLIENT_ID,
     clientSecret: process.env.YOUTUBE_CLIENT_SECRET,
     redirectUri,
   });
+};
 
 @AuthProvider({ provider: 'GOOGLE' })
 export class GoogleProvider extends AuthProviderAbstract {

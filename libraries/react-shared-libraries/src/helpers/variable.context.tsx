@@ -7,6 +7,7 @@ interface VariableContextInterface {
   isChatBase: boolean;
   isGeneral: boolean;
   genericOauth: boolean;
+  googleLoginEnabled?: boolean;
   oauthLogoUrl: string;
   oauthDisplayName: string;
   mcpUrl?: string;

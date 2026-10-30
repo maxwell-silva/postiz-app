@@ -29,3 +29,24 @@ Este pacote contém somente infraestrutura Postiz. O adapter mínimo do sistema 
 O campo `built_image.customizations` no lock registra o estado histórico no momento do build, antes do commit explícito de infraestrutura. Publicar estes arquivos não reconstrói nem altera a imagem ou os serviços.
 
 Hashes `files` preservam os bytes CRLF do checkout usado no build validado; `files_git_lf` confere os blobs LF normalizados pelo Git. A diferença é somente de finais de linha, verificada antes da publicação.
+
+## Local Google login configuration fix (2026-10-30)
+
+Email/password registration and login remain available. Google sign-in is shown
+only when both existing YOUTUBE_CLIENT_ID and YOUTUBE_CLIENT_SECRET settings
+are nonblank; the auth provider uses these upstream settings. No credentials
+are needed for email/password onboarding. No change to YouTube social OAuth.
+Direct Google auth requests without configuration return HTTP503 with an
+email/password hint. Presence checks do not validate external credentials.
+
+Focused offline fixture test, using the pinned app image dependencies:
+`docker run --rm --network none --entrypoint node -v <checkout>:/source:ro dark-postiz/app:35a4829-authfix /source/deploy/dark-channels/auth-configuration.test.cjs`
+
+The fix changes no Prisma schema or migration. Preserve the effective container
+environment (including registration flags), existing secret files and volume
+mounts during recreation. Never regenerate secrets. The local operator keeps
+an ignored private environment override and consistent pg_dump snapshot before
+recreation, because the existing startup command performs db push. Use only
+`up -d --no-deps postiz` with the reviewed Compose/environment. Verify health,
+HTTP200 auth forms and HTTP503 Google auth without following external redirects.
+Previous image ID remains in infra-lock.json for rollback with the same schema.

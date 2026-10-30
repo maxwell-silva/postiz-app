@@ -45,14 +45,56 @@
     }
   },
   "files": {
-    "deploy/dark-channels/compose.yaml": "e8ae29171b53c7838a16cc409d36d2874bcc4f549ae6a513af319dcf6c0b3e07",
+    "deploy/dark-channels/compose.yaml": "60e2a4645239da9e46e2084d2f6b661a7975b985a6ac3d1bd016d7304a67c572",
     "deploy/dark-channels/Dockerfile": "12759bfb2476af74d4cbdf94687b3472611633dedae55b08b46355209fbe1279",
     "pnpm-lock.yaml": "f968eaea6d7892efd743d9557cfe80cf8aed720212404b2996e99080f56f1d81",
     "LICENSE": "5b557a1b2818690b69399e584fec5edfce6673223479b9b6371d35474c13378e",
     "deploy/dark-channels/dynamicconfig/development-cass.yaml": "a281ce4915b0b2d17213274b642432067472c86e355f7c63678e483e38cb441d",
-    "deploy/dark-channels/dynamicconfig/development-sql.yaml": "b498d87249c6cd0c53245f4d945620f7fadf078de2c9e1cd307fe3571615cc38"
+    "deploy/dark-channels/dynamicconfig/development-sql.yaml": "b498d87249c6cd0c53245f4d945620f7fadf078de2c9e1cd307fe3571615cc38",
+    "apps/backend/src/services/auth/providers/google.provider.ts": "01f563cbfd8efb62c7eeb3ce2a8b76f813226412524b0ea8cdae342c3bf1052f",
+    "apps/frontend/src/app/(app)/layout.tsx": "4e03486f28d8508938106a4713f91bafea35db80592c71214fd527b5989b922a",
+    "apps/frontend/src/components/auth/login.tsx": "e21c9d8d284d69ec1dd5a5415a8bec070659c51e613dedffbc026df8cd49be86",
+    "apps/frontend/src/components/auth/register.tsx": "0eb1cf56ca49e4428353b31d8e140f637088bb818398224eefcc6caded0ab3a5",
+    "libraries/react-shared-libraries/src/helpers/variable.context.tsx": "29ffa2894362052037307c29822715c7b08761f495347f92c604d72c1794df83",
+    "deploy/dark-channels/auth-configuration.test.cjs": "947a86c1f1684279cc4b65ec5940e2f7de47fe18381600b0bf852ec01446835c",
+    "deploy/dark-channels/OPERACAO.md": "1d8c580d8998d1d25b07b1332b6d7db9e3dc3c80372b5fe8335c8e659eeea378"
   },
   "built_image": {
+    "build_args": {
+      "NEXT_PUBLIC_VERSION": "35a4829-authfix"
+    },
+    "tag": "dark-postiz/app:35a4829-authfix",
+    "source_sha": "35a482901583ed4219ff43afffde184e8ee373a6",
+    "id": "sha256:5ae046fc7f24f87adc4849c5cf7fce4de65352cf9e64a6fcc4bfd2c944b22e05",
+    "build_exit": 0,
+    "customizations": "Google login configuration gating and local 503; no schema changes",
+    "package_tools": {
+      "pnpm": "10.6.1",
+      "pm2": "6.0.14",
+      "prisma": "6.5.0"
+    },
+    "customization_parent": "19612adb865df93dd253b7e4da36b5c7f55d4543"
+  },
+  "hash_convention": {
+    "files": "SHA256 of actual worktree bytes; unchanged historical CRLF entries retained, changed files use current bytes",
+    "files_git_lf": "SHA256 of Git-normalized LF blobs; same content after newline normalization"
+  },
+  "files_git_lf": {
+    "deploy/dark-channels/compose.yaml": "60e2a4645239da9e46e2084d2f6b661a7975b985a6ac3d1bd016d7304a67c572",
+    "deploy/dark-channels/Dockerfile": "f560f6d788d816214f3d9dbd825013563182a45269894af1a67c01e1ac4b3504",
+    "pnpm-lock.yaml": "3b7379324de2332e3e6814d536cda0fb3a57cb7aa82e3ab6773b1a5f7ab239ff",
+    "LICENSE": "d322fb1066693d8ed25495d11029f443aa793316852749e1389773c1946251b3",
+    "deploy/dark-channels/dynamicconfig/development-cass.yaml": "93974403e6c69537da3bcc35d31e507e4617df6bff71fc72bdb2e98cc177625f",
+    "deploy/dark-channels/dynamicconfig/development-sql.yaml": "7bf93f05a292f3fd12605fe0f7df2956ccd88ffedabc134109a75c154a173788",
+    "apps/backend/src/services/auth/providers/google.provider.ts": "01f563cbfd8efb62c7eeb3ce2a8b76f813226412524b0ea8cdae342c3bf1052f",
+    "apps/frontend/src/app/(app)/layout.tsx": "4e03486f28d8508938106a4713f91bafea35db80592c71214fd527b5989b922a",
+    "apps/frontend/src/components/auth/login.tsx": "e21c9d8d284d69ec1dd5a5415a8bec070659c51e613dedffbc026df8cd49be86",
+    "apps/frontend/src/components/auth/register.tsx": "0eb1cf56ca49e4428353b31d8e140f637088bb818398224eefcc6caded0ab3a5",
+    "libraries/react-shared-libraries/src/helpers/variable.context.tsx": "29ffa2894362052037307c29822715c7b08761f495347f92c604d72c1794df83",
+    "deploy/dark-channels/auth-configuration.test.cjs": "947a86c1f1684279cc4b65ec5940e2f7de47fe18381600b0bf852ec01446835c",
+    "deploy/dark-channels/OPERACAO.md": "1d8c580d8998d1d25b07b1332b6d7db9e3dc3c80372b5fe8335c8e659eeea378"
+  },
+  "previous_built_image": {
     "build_args": {
       "NEXT_PUBLIC_VERSION": "35a4829-local"
     },
@@ -66,17 +108,5 @@
       "pm2": "6.0.14",
       "prisma": "6.5.0"
     }
-  },
-  "hash_convention": {
-    "files": "SHA256 of Windows CRLF worktree bytes used at validated build; historical, unchanged",
-    "files_git_lf": "SHA256 of Git-normalized LF blobs; same content after newline normalization"
-  },
-  "files_git_lf": {
-    "deploy/dark-channels/compose.yaml": "33b1d99f5e33c25b6cb42cc7aba111c5fde42092b38d4195df02055a8711f632",
-    "deploy/dark-channels/Dockerfile": "f560f6d788d816214f3d9dbd825013563182a45269894af1a67c01e1ac4b3504",
-    "pnpm-lock.yaml": "3b7379324de2332e3e6814d536cda0fb3a57cb7aa82e3ab6773b1a5f7ab239ff",
-    "LICENSE": "d322fb1066693d8ed25495d11029f443aa793316852749e1389773c1946251b3",
-    "deploy/dark-channels/dynamicconfig/development-cass.yaml": "93974403e6c69537da3bcc35d31e507e4617df6bff71fc72bdb2e98cc177625f",
-    "deploy/dark-channels/dynamicconfig/development-sql.yaml": "7bf93f05a292f3fd12605fe0f7df2956ccd88ffedabc134109a75c154a173788"
   }
 }
