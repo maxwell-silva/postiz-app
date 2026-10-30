@@ -1,0 +1,82 @@
+{
+  "platform": "linux/amd64",
+  "source_sha": "35a482901583ed4219ff43afffde184e8ee373a6",
+  "compose_sha": "dd4969e5e694cd009619a0d53cff14c21104580b",
+  "images": {
+    "postgres:17-alpine": {
+      "digest": "sha256:e4cb93687b062cd25a0e8f672d85a7708235009d70d31f8a7698d9370092a9c4",
+      "index_digest": "sha256:266d3c257594e195b309ae9d1805e54c788f1d7b375f56bf6c367aac6c917e7b",
+      "platform": "linux/amd64"
+    },
+    "redis:7.2": {
+      "digest": "sha256:00e75fbf4349fea45c7907353554a340c8606ce9f6372afe26ad1039641237a8",
+      "index_digest": "sha256:0312984fbfeb2ff1d4382ecef45b50e7d65478a6a58cf12ce28d6de7a4142e45",
+      "platform": "linux/amd64"
+    },
+    "elasticsearch:7.17.27": {
+      "digest": "sha256:07e9262b856006959e384de7ca9587bc5c6da024ca7042216a9ea26efe4c69c1",
+      "index_digest": "sha256:9a6443f55243f6acbfeb4a112d15eb3b9aac74bf25e0e39fa19b3ddd3a6879d0",
+      "platform": "linux/amd64"
+    },
+    "postgres:16": {
+      "digest": "sha256:b95b87e93ceb7594715d5c71fb6e09f6fc878851ab537735d617325eb9ba8b1b",
+      "index_digest": "sha256:1beaa3084eee2676f20a9cd9928f0bf2c5bf674f8e49f81017912183d377c61c",
+      "platform": "linux/amd64"
+    },
+    "temporalio/auto-setup:1.28.1": {
+      "digest": "sha256:e4c296d2b16d7607938e71182b9cc0936c90002ff63d97227f195625cf798ea3",
+      "index_digest": "sha256:607d68caa111338d754771efb876c92dfcdae06d056e4530bb31cd0f37406e6a",
+      "platform": "linux/amd64"
+    },
+    "temporalio/admin-tools:1.28.1-tctl-1.18.4-cli-1.4.1": {
+      "digest": "sha256:00864ac86e79aec0d418582892d3435564c613b68b72fe2e41e9c50176794983",
+      "index_digest": "sha256:01537b62d995f27a0f0d33a01ac4caa6779622f454fb2eb36fed0dccd45c6244",
+      "platform": "linux/amd64"
+    },
+    "temporalio/ui:2.34.0": {
+      "digest": "sha256:ad58bbefd5919444041ed90ff0498393ee1d95dd9c3d85eb097080d73f6259c6",
+      "index_digest": "sha256:cb17ea423d76a8a19a269d0bcd81fc12eee1f6365acd2a56b590dafb35696a95",
+      "platform": "linux/amd64"
+    },
+    "node:22.23.4-bookworm-slim": {
+      "digest": "sha256:9f0dde62d10e7ff7a310ecaebd66225f6b46c17e6cb778449a77b05d3541bea2",
+      "index_digest": "sha256:4b150b48b4116e2a22f2c39cc27025fbf4f153e2078fd3b14d159fdb5c7279da",
+      "platform": "linux/amd64"
+    }
+  },
+  "files": {
+    "deploy/dark-channels/compose.yaml": "e8ae29171b53c7838a16cc409d36d2874bcc4f549ae6a513af319dcf6c0b3e07",
+    "deploy/dark-channels/Dockerfile": "12759bfb2476af74d4cbdf94687b3472611633dedae55b08b46355209fbe1279",
+    "pnpm-lock.yaml": "f968eaea6d7892efd743d9557cfe80cf8aed720212404b2996e99080f56f1d81",
+    "LICENSE": "5b557a1b2818690b69399e584fec5edfce6673223479b9b6371d35474c13378e",
+    "deploy/dark-channels/dynamicconfig/development-cass.yaml": "a281ce4915b0b2d17213274b642432067472c86e355f7c63678e483e38cb441d",
+    "deploy/dark-channels/dynamicconfig/development-sql.yaml": "b498d87249c6cd0c53245f4d945620f7fadf078de2c9e1cd307fe3571615cc38"
+  },
+  "built_image": {
+    "build_args": {
+      "NEXT_PUBLIC_VERSION": "35a4829-local"
+    },
+    "tag": "dark-postiz/app:35a4829-local",
+    "source_sha": "35a482901583ed4219ff43afffde184e8ee373a6",
+    "id": "sha256:752cd875991df490951e6db50ab5bf3670d4f6d556523966171e4283c9d1a230",
+    "build_exit": 0,
+    "customizations": "uncommitted local infra only",
+    "package_tools": {
+      "pnpm": "10.6.1",
+      "pm2": "6.0.14",
+      "prisma": "6.5.0"
+    }
+  },
+  "hash_convention": {
+    "files": "SHA256 of Windows CRLF worktree bytes used at validated build; historical, unchanged",
+    "files_git_lf": "SHA256 of Git-normalized LF blobs; same content after newline normalization"
+  },
+  "files_git_lf": {
+    "deploy/dark-channels/compose.yaml": "33b1d99f5e33c25b6cb42cc7aba111c5fde42092b38d4195df02055a8711f632",
+    "deploy/dark-channels/Dockerfile": "f560f6d788d816214f3d9dbd825013563182a45269894af1a67c01e1ac4b3504",
+    "pnpm-lock.yaml": "3b7379324de2332e3e6814d536cda0fb3a57cb7aa82e3ab6773b1a5f7ab239ff",
+    "LICENSE": "d322fb1066693d8ed25495d11029f443aa793316852749e1389773c1946251b3",
+    "deploy/dark-channels/dynamicconfig/development-cass.yaml": "93974403e6c69537da3bcc35d31e507e4617df6bff71fc72bdb2e98cc177625f",
+    "deploy/dark-channels/dynamicconfig/development-sql.yaml": "7bf93f05a292f3fd12605fe0f7df2956ccd88ffedabc134109a75c154a173788"
+  }
+}

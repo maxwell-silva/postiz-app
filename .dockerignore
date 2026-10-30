@@ -21,3 +21,5 @@ dist
 .git
 .github
 reports
+.secrets
+deploy/canonical
